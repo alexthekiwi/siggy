@@ -67,7 +67,10 @@ async function main() {
 
         // Replace all curly braces with the relevant column
         columns.forEach(col => {
-            signature = signature.replace(/\{\{\s?(\w+)\s?\}\}/g, row[columns.findIndex(c => c === col)]);
+            signature = signature.replaceAll('{{ ', '{{');
+            signature = signature.replaceAll(' }} ', '}}');
+
+            signature = signature.replaceAll(`{{${col}}}`, row[columns.indexOf(col)]);
         });
 
         await writeOutput(`${outputDir}/${row[0]}.html`, signature);
