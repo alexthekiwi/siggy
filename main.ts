@@ -1,12 +1,13 @@
 import { parse } from "https://deno.land/std@0.119.0/flags/mod.ts";
 import { ensureDir } from "https://deno.land/std@0.165.0/fs/mod.ts";
+import { resolve } from "https://deno.land/std@0.165.0/path/mod.ts";
 
 const flags = parse(Deno.args, {
     string: ['source', 'template', 'output'],
     default: {
-        source: './source.csv',
-        template: './template.html',
-        output: './output',
+        source: resolve('./source.csv'),
+        template: resolve('./template.html'),
+        output: resolve('./output'),
     }
 });
 
