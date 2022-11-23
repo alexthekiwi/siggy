@@ -1,0 +1,11 @@
+# System files
+.DS_Store
+.vscode
+
+# Compiled files
+siggy
+
+# Variable files
+source.csv
+template.html
+output
